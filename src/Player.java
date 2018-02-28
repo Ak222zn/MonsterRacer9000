@@ -3,7 +3,7 @@
 public class Player extends GameObject {
 
     public Player() {
-        this.x = 1;
+        this.x = 15;
         this.y = 1;
     }
 

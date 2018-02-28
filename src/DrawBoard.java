@@ -11,13 +11,25 @@ public class DrawBoard {
         for (int i = 0; i <= Board.BOARD_HEIGHT; i++) {
             Main.terminal.moveCursor(0,i);
             Main.terminal.putCharacter('|');
-            Main.terminal.moveCursor(Board.BOARD_WIDTH,i);
+            Main.terminal.moveCursor(Board.BOARD_WIDTH+1,i);
             Main.terminal.putCharacter('|');
         }
         for (int i = 1; i < Board.BOARD_WIDTH; i++){
             Main.terminal.moveCursor(i,0);
             Main.terminal.putCharacter('-');
-            Main.terminal.moveCursor(i,Board.BOARD_HEIGHT);
+            Main.terminal.moveCursor(i,Board.BOARD_HEIGHT+1);
+            Main.terminal.putCharacter('-');
+        }
+        for (int i = 6; i < 14; i++){
+            Main.terminal.moveCursor(6, i);
+            Main.terminal.putCharacter('|');
+            Main.terminal.moveCursor(14, i);
+            Main.terminal.putCharacter('|');
+        }
+        for (int i = 6; i < 14; i++){
+            Main.terminal.moveCursor(i, 6);
+            Main.terminal.putCharacter('-');
+            Main.terminal.moveCursor(i, 14);
             Main.terminal.putCharacter('-');
         }
 

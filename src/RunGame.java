@@ -14,9 +14,18 @@ public class RunGame {
             DrawBoard.draw(player,monster);
 
             Movement.moveGameObject(player,monster);
+            if (isPlayerAlive(player, monster)){
+                continue;
+            } else
+                System.exit(0);
 
-            //Monster movement phase
-            //GameOver?
         }
+    }
+
+    public boolean isPlayerAlive (Player player, Monster monster){
+        if (player.x == monster.x && player.y == monster.y){
+            return false;
+        }
+        return true;
     }
 }
