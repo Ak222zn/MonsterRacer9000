@@ -1,4 +1,4 @@
-//Klassen startar upp spelet
+//Klassen startar upp spelet FU
 
         import com.googlecode.lanterna.TerminalFacade;
         import com.googlecode.lanterna.terminal.Terminal;
