@@ -3,8 +3,8 @@
 public class Player extends GameObject {
 
     public Player() {
-        this.x = 10;
-        this.y = 10;
+        this.x = 1;
+        this.y = 1;
     }
 
 }

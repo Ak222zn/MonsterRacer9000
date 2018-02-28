@@ -3,7 +3,7 @@
 public class Monster extends GameObject {
 
     public Monster() {
-        this.x = 20;
-        this.y = 20;
+        this.x = 19;
+        this.y = 19;
     }
 }

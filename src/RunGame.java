@@ -11,13 +11,12 @@ public class RunGame {
 
         //kör spelet så länge villkoret uppfylls
         while (true) {
+            DrawBoard.draw(player,monster);
 
-            Key key;
-            do {
-                Thread.sleep(5);
-                key = Main.terminal.readInput();
-            } while (key == null);
+            Movement.moveGameObject(player,monster);
 
+            //Monster movement phase
+            //GameOver?
         }
     }
 }
