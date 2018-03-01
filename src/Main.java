@@ -1,9 +1,7 @@
 //Klassen startar upp spelet
 
-import java.io.FileNotFoundException;
-
 public class Main {
-    public static void main(String[] args) throws InterruptedException, FileNotFoundException, Exception {
+    public static void main(String[] args) {
         RunGame.rungame();
     }
 }

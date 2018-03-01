@@ -13,21 +13,21 @@ public class Draw {
         terminal.clearScreen();
 
         terminal.applyForegroundColor(Terminal.Color.CYAN);
-        for (int i = 0; i <= Board.BOARD_HEIGHT; i++) {
+        for (int i = 0; i <= Board.BOARD_HEIGHT + 1; i++) {
             terminal.moveCursor(0,i);
             terminal.putCharacter('|');
-            terminal.moveCursor(Board.BOARD_WIDTH+1,i);
+            terminal.moveCursor(Board.BOARD_WIDTH + 1,i);
             terminal.putCharacter('|');
         }
-        for (int i = 1; i < Board.BOARD_WIDTH; i++){
+        for (int i = 1; i < Board.BOARD_WIDTH + 1; i++){
             terminal.moveCursor(i,0);
             terminal.putCharacter('-');
-            terminal.moveCursor(i,Board.BOARD_HEIGHT+1);
+            terminal.moveCursor(i,Board.BOARD_HEIGHT + 1);
             terminal.putCharacter('-');
         }
 
-        for (int i = 1; i < Board.BOARD_WIDTH +1; i++) {
-            for (int j = 1; j < Board.BOARD_HEIGHT +1; j++) {
+        for (int i = 1; i < Board.BOARD_WIDTH + 1; i++) {
+            for (int j = 1; j < Board.BOARD_HEIGHT + 1; j++) {
                 terminal.moveCursor(i,j);
                 terminal.putCharacter(array[i][j]);
             }

@@ -5,17 +5,22 @@ import com.googlecode.lanterna.terminal.Terminal;
 
 public class Movement {
 
-    public static void moveGameObject(Terminal terminal, Player player, Monster monster, char [][] array)throws InterruptedException {
+    public static void moveGameObject(Terminal terminal, Player player, Monster monster, char [][] array) {
 
         movePlayer(terminal, player, array);
         moveMonster(player, monster);
 
     }
 
-    public static void movePlayer(Terminal terminal, Player player, char [][] array) throws InterruptedException {
+    public static void movePlayer(Terminal terminal, Player player, char [][] array)  {
         Key key;
         do {
-            Thread.sleep(5);
+            try {
+                Thread.sleep(5);
+            }
+            catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             key = terminal.readInput();
         }
         while (key == null);
