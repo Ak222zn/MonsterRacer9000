@@ -18,14 +18,14 @@ public class RunGame {
 
         File file = null;
         BufferedReader read = null;
-        char[][] levelArray = new char[21][21];
+        char[][] levelArray = new char[30][30];
         try {
             file = new File("Levels\\LevelOne.txt");
             read = new BufferedReader(new FileReader(file));
 
-            for (int i = 0; i < 21; i++) {
+            for (int i = 0; i < Board.BOARD_HEIGHT; i++) {
                 char[] line = read.readLine().toCharArray();
-                for (int j = 0; j < 21; j++) {
+                for (int j = 0; j < Board.BOARD_WIDTH; j++) {
                     levelArray[i][j] = line[j];
                 }
             }

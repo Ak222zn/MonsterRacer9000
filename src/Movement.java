@@ -27,20 +27,32 @@ public class Movement {
 
         switch (key.getKind()) {
             case ArrowDown:
-                if (player.y < Board.BOARD_HEIGHT && (array[player.x][player.y + 1]) != 'x')
+                if (player.y < Board.BOARD_HEIGHT && (array[player.x][player.y + 1]) != 'x') {
+                    if (array[player.x][player.y + 1] == 'E')
+                        System.exit(0);
                     player.y++;
+                }
                 break;
             case ArrowUp:
-                if (player.y > 1 && (array[player.x][player.y - 1]) != 'x')
+                if (player.y > 0 && (array[player.x][player.y - 1]) != 'x') {
+                    if (array[player.x][player.y - 1] == 'E')
+                        System.exit(0);
                     player.y--;
+                }
                 break;
             case ArrowLeft:
-                if (player.x > 1 && (array[player.x - 1][player.y]) != 'x')
+                if (player.x > 0 && (array[player.x - 1][player.y]) != 'x') {
+                    if (array[player.x - 1][player.y] == 'E')
+                        System.exit(0);
                     player.x--;
+                }
                 break;
             case ArrowRight:
-                if (player.x < Board.BOARD_WIDTH && (array[player.x + 1][player.y]) != 'x')
+                if (player.x < Board.BOARD_WIDTH && (array[player.x + 1][player.y]) != 'x') {
+                    if (array[player.x + 1][player.y] == 'E')
+                        System.exit(0);
                     player.x++;
+                }
                 break;
         }
     }
