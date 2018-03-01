@@ -1,13 +1,22 @@
 //Klassen innehåller regler för hur Gameobjects rör sig
 
 import com.googlecode.lanterna.input.Key;
+import com.googlecode.lanterna.terminal.Terminal;
 
 public class Movement {
-    public static void moveGameObject(Player player, Monster monster) throws InterruptedException {
+
+    public static void moveGameObject(Terminal terminal, Player player, Monster monster)throws InterruptedException {
+
+        movePlayer(terminal, player);
+        moveMonster(player, monster);
+
+    }
+
+    public static void movePlayer(Terminal terminal, Player player) throws InterruptedException {
         Key key;
         do {
             Thread.sleep(5);
-            key = Main.terminal.readInput();
+            key = terminal.readInput();
         }
         while (key == null);
 
@@ -29,6 +38,10 @@ public class Movement {
                     player.x++;
                 break;
         }
+    }
+
+    public static void moveMonster(Player player, Monster monster) {
+
         int deltaX = (player.x - monster.x);
         int deltaY = (player.y - monster.y);
         if (Math.abs(deltaX) <= Math.abs(deltaY)) {

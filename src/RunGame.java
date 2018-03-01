@@ -1,31 +1,43 @@
 //Klassen innehåller loopen som håller spelet igång
 
+import com.googlecode.lanterna.TerminalFacade;
 import com.googlecode.lanterna.input.Key;
 import com.googlecode.lanterna.terminal.Terminal;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.nio.charset.Charset;
+
 public class RunGame {
-    public void rungame() throws InterruptedException {
+    public static void rungame() throws InterruptedException, FileNotFoundException, Exception {
+        Terminal terminal = TerminalFacade.createTerminal(System.in, System.out, Charset.forName("UTF8"));
+        terminal.enterPrivateMode();
+        terminal.setCursorVisible(false);
+
+
+        File file = new File("C:\\Users\\Administrator\\Documents\\Vecka 3\\Java Mini Project #1\\MonsterRacer9000\\LevelOne.txt");
+        BufferedReader read = new BufferedReader(new FileReader(file));
+
         Player player = new Player();
         Monster monster = new Monster();
 
+        String filestring;
+        while ((filestring = read.readLine()) != null) {
+            System.out.println(filestring);
+        }
 
-        //kör spelet så länge villkoret uppfylls
+
         while (true) {
-            DrawBoard.draw(player,monster);
 
-            Movement.moveGameObject(player,monster);
-            if (isPlayerAlive(player, monster)){
-                continue;
-            } else
-                System.exit(0);
-
+            //kör spelet tills det blir game over, vilket kontrolleras och hanteras i GameOver
+            while (true) {
+                Draw.drawBoardAndGameObjects(terminal, player, monster);
+                Movement.moveGameObject(terminal, player, monster);
+                GameOver.isPlayerAlive(terminal, player, monster);
+            }
         }
     }
 
-    public boolean isPlayerAlive (Player player, Monster monster){
-        if (player.x == monster.x && player.y == monster.y){
-            return false;
-        }
-        return true;
-    }
 }
