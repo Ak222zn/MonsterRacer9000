@@ -3,12 +3,12 @@
 import com.googlecode.lanterna.terminal.Terminal;
 
 public class Draw {
-    public static void drawBoardAndGameObjects(Terminal terminal, Player player, Monster monster) {
-        drawBoard(terminal);
+    public static void drawBoardAndGameObjects(Terminal terminal, Player player, Monster monster, char[][] array) {
+        drawBoard(terminal, array);
         drawGameObject(terminal, player, monster);
     }
 
-    public static void drawBoard(Terminal terminal) {
+    public static void drawBoard(Terminal terminal, char[][] array) {
 
         terminal.clearScreen();
 
@@ -25,19 +25,13 @@ public class Draw {
             terminal.moveCursor(i,Board.BOARD_HEIGHT+1);
             terminal.putCharacter('-');
         }
-        for (int i = 6; i < 14; i++){
-            terminal.moveCursor(6, i);
-            terminal.putCharacter('|');
-            terminal.moveCursor(14, i);
-            terminal.putCharacter('|');
-        }
-        for (int i = 6; i < 14; i++){
-            terminal.moveCursor(i, 6);
-            terminal.putCharacter('-');
-            terminal.moveCursor(i, 14);
-            terminal.putCharacter('-');
-        }
 
+        for (int i = 1; i < Board.BOARD_WIDTH +1; i++) {
+            for (int j = 1; j < Board.BOARD_HEIGHT +1; j++) {
+                terminal.moveCursor(i,j);
+                terminal.putCharacter(array[i][j]);
+            }
+        }
 
     }
 

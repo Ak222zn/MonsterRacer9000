@@ -5,14 +5,14 @@ import com.googlecode.lanterna.terminal.Terminal;
 
 public class Movement {
 
-    public static void moveGameObject(Terminal terminal, Player player, Monster monster)throws InterruptedException {
+    public static void moveGameObject(Terminal terminal, Player player, Monster monster, char [][] array)throws InterruptedException {
 
-        movePlayer(terminal, player);
+        movePlayer(terminal, player, array);
         moveMonster(player, monster);
 
     }
 
-    public static void movePlayer(Terminal terminal, Player player) throws InterruptedException {
+    public static void movePlayer(Terminal terminal, Player player, char [][] array) throws InterruptedException {
         Key key;
         do {
             Thread.sleep(5);
@@ -22,19 +22,19 @@ public class Movement {
 
         switch (key.getKind()) {
             case ArrowDown:
-                if (player.y < Board.BOARD_HEIGHT)
+                if (player.y < Board.BOARD_HEIGHT && (array[player.x][player.y + 1]) != 'x')
                     player.y++;
                 break;
             case ArrowUp:
-                if (player.y > 1)
+                if (player.y > 1 && (array[player.x][player.y - 1]) != 'x')
                     player.y--;
                 break;
             case ArrowLeft:
-                if (player.x > 1)
+                if (player.x > 1 && (array[player.x - 1][player.y]) != 'x')
                     player.x--;
                 break;
             case ArrowRight:
-                if (player.x < Board.BOARD_WIDTH)
+                if (player.x < Board.BOARD_WIDTH && (array[player.x + 1][player.y]) != 'x')
                     player.x++;
                 break;
         }

@@ -23,18 +23,26 @@ public class RunGame {
         Player player = new Player();
         Monster monster = new Monster();
 
-        String filestring;
-        while ((filestring = read.readLine()) != null) {
-            System.out.println(filestring);
+        char[][] levelArray = new char[21][21];
+        for (int i = 0; i < 21; i++) {
+            char[] line = read.readLine().toCharArray();
+            for (int j = 0; j < 21; j++) {
+                levelArray[i][j] = line[j];
+            }
         }
+
+//        String filestring;
+//        while ((filestring = read.readLine()) != null) {
+//            System.out.println(filestring);
+//        }
 
 
         while (true) {
 
             //kör spelet tills det blir game over, vilket kontrolleras och hanteras i GameOver
             while (true) {
-                Draw.drawBoardAndGameObjects(terminal, player, monster);
-                Movement.moveGameObject(terminal, player, monster);
+                Draw.drawBoardAndGameObjects(terminal, player, monster, levelArray);
+                Movement.moveGameObject(terminal, player, monster, levelArray);
                 GameOver.isPlayerAlive(terminal, player, monster);
             }
         }
