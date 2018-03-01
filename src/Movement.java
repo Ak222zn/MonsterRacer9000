@@ -5,20 +5,19 @@ import com.googlecode.lanterna.terminal.Terminal;
 
 public class Movement {
 
-    public static void moveGameObject(Terminal terminal, Player player, Monster monster, char [][] array) {
+    public static void moveGameObject(Terminal terminal, Player player, Monster monster, char[][] array) {
 
         movePlayer(terminal, player, array);
-        moveMonster(player, monster);
+        moveMonster(player, monster, array);
 
     }
 
-    public static void movePlayer(Terminal terminal, Player player, char [][] array)  {
+    public static void movePlayer(Terminal terminal, Player player, char[][] array) {
         Key key;
         do {
             try {
                 Thread.sleep(5);
-            }
-            catch (InterruptedException e) {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             key = terminal.readInput();
@@ -57,20 +56,24 @@ public class Movement {
         }
     }
 
-    public static void moveMonster(Player player, Monster monster) {
+    public static void moveMonster(Player player, Monster monster, char[][] array) {
 
         int deltaX = (player.x - monster.x);
         int deltaY = (player.y - monster.y);
         if (Math.abs(deltaX) <= Math.abs(deltaY)) {
             if (deltaY > 0) {
-                monster.y++;
+                if (array[monster.x][monster.y + 1] != 'x' && array[monster.x][monster.y + 1] != 'E')
+                    monster.y++;
             } else if (deltaY < 0)
-                monster.y--;
+                if (array[monster.x][monster.y - 1] != 'x' && array[monster.x][monster.y - 1] != 'E')
+                    monster.y--;
         } else if (Math.abs(deltaX) > Math.abs(deltaY)) {
             if (deltaX > 0) {
-                monster.x++;
+                if (array[monster.x + 1][monster.y] != 'x' && array[monster.x + 1][monster.y] != 'E')
+                    monster.x++;
             } else if (deltaX < 0)
-                monster.x--;
+                if (array[monster.x - 1][monster.y] != 'x' && array[monster.x - 1][monster.y] != 'E')
+                    monster.x--;
         }
     }
 }
