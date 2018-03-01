@@ -17,7 +17,7 @@ public class RunGame {
         terminal.setCursorVisible(false);
 
 
-        File file = new File("C:\\Users\\Administrator\\Documents\\Vecka 3\\Java Mini Project #1\\MonsterRacer9000\\LevelOne.txt");
+        File file = new File("LevelOne.txt");
         BufferedReader read = new BufferedReader(new FileReader(file));
 
         Player player = new Player();
