@@ -20,7 +20,7 @@ public class RunGame {
         BufferedReader read = null;
         char[][] levelArray = new char[21][21];
         try {
-            file = new File("LevelOne.txt");
+            file = new File("Levels\\LevelOne.txt");
             read = new BufferedReader(new FileReader(file));
 
             for (int i = 0; i < 21; i++) {
