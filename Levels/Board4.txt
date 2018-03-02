@@ -2,29 +2,29 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 x                            x
 x      x              x      x
 x     xxx            xxx     x
-x      x              x      x
-x             E              x
+x      x     x   x    x      x
+x            x E x           x
 x         xxxxxxxxxxx        x
 x        x           x       x
 x       x             x      x
 x                            x
 x                            x
-x xxxxxxxxxxxxxxxxx    xxxxx x
+x xx  xxxxxxxxxxxxxxxxxx xxxxx
+x              x             x
+x    x         x       x     x
+x   xxx               xxx    x
+x    x         x       x     x
+x          xxxxxxxxx         x
 x              x             x
 x              x             x
-x              x             x
-x              x             x
-x        xxxxxxxxxxxxx       x
+x     xxxxxxxxxxxxxxxxxx     x
 x                            x
+x     x                x     x
+x    xxx              xxx    x
+x     x                x     x
 x                            x
-xxxxxxxxxxxxxxxxxxxxxx       x
-x                    x       x
-x                            x
-x                    x       x
-x  xxxxxxxxxxxxxxxxxxxxxxx   x
-x                        x   x
-x                        x   x
-x                        x   x
-x                        x   x
+x             x              x
+x            xxx             x
+x             x              x
 x                            x
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
