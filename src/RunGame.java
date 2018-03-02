@@ -11,6 +11,9 @@ import java.util.Scanner;
 
 public class RunGame {
     public static void rungame(){
+
+        MusicPlayer.musicPlayer();
+
         Terminal terminal = TerminalFacade.createTerminal(System.in, System.out, Charset.forName("UTF8"));
         terminal.enterPrivateMode();
         terminal.setCursorVisible(false);
