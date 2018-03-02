@@ -25,11 +25,12 @@ public class Draw {
 
     public static void drawGameObject(Terminal terminal, Player player, Monster monster) {
 
-        terminal.applyForegroundColor(Terminal.Color.RED);
+        terminal.applyForegroundColor(Terminal.Color.YELLOW);
         terminal.moveCursor(player.getX(), player.getY());
         terminal.putCharacter('P');
+        terminal.applyForegroundColor(Terminal.Color.RED);
         terminal.moveCursor(monster.getX(), monster.getY());
-        terminal.putCharacter('M');
+        terminal.putCharacter('\u2588');
         terminal.moveCursor(0,0);
 
     }

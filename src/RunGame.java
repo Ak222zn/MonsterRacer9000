@@ -10,7 +10,7 @@ import java.nio.charset.Charset;
 import java.util.Scanner;
 
 public class RunGame {
-    public static void rungame(){
+    public static void rungame() {
         Terminal terminal = TerminalFacade.createTerminal(System.in, System.out, Charset.forName("UTF8"));
         terminal.enterPrivateMode();
         terminal.setCursorVisible(false);
@@ -22,13 +22,12 @@ public class RunGame {
 
         char[][] levelArray = new char[30][30];
 
-        int k = 1;
-        for (k = 1; k <= 5; k++) {
-            File newfile = new File("Levels\\Board" + k + ".txt");
+        int level = 1;
+        for (level = 1; level <= 5; level++) {
+            File newfile = new File("Levels\\Board" + level + ".txt");
             try {
                 scanNewLevel = new Scanner(new FileReader(newfile));
-            }
-            catch (FileNotFoundException e) {
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
 
@@ -40,12 +39,8 @@ public class RunGame {
                 }
             }
 
-            // player and monster start position, randomize
-            player.setX(28);
-            player.setY(2);
-            monster.setX(2);
-            monster.setY(28);
-
+            player.randomizeStartPosition(levelArray);
+            monster.randomizeStartPosition(player, levelArray);
 
             //kör bana tills det blir game over, vilket kontrolleras och hanteras i GameOver
             do {
@@ -55,16 +50,22 @@ public class RunGame {
                 Movement.moveMonster(player, monster, levelArray);
             } while (GameOver.isPlayerAlive(terminal, player, monster));
 
-            if (GameOver.isPlayerAlive(terminal,player,monster))
+            if (GameOver.isPlayerAlive(terminal, player, monster) && level == 5) {
+                String text2 = "Congratulations! You won!";
+                GameOver.printString(terminal, text2, Board.BOARD_WIDTH + 3, 3);
+                if (GameOver.continuePlaying(terminal)) {
+                    level = 0;
+                    continue;
+                } else {
+                    System.exit(0);
+                }
+            } else if (GameOver.isPlayerAlive(terminal, player, monster)) {
                 continue;
-            else if (GameOver.continuePlaying(terminal)) {
-                k = 0;
+            } else if (GameOver.continuePlaying(terminal)) {
+                level = 0;
                 continue;
-            }
-            else
+            } else
                 System.exit(0);
-
         }
     }
-
 }

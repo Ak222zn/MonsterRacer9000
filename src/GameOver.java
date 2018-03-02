@@ -10,6 +10,7 @@ public class GameOver {
             return false;
         } else
             return true;
+
     }
 
     public static boolean continuePlaying(Terminal terminal) {
@@ -39,7 +40,7 @@ public class GameOver {
     }
 
 
-    private static void printString(Terminal terminal, String s, int x, int y) {
+    public static void printString(Terminal terminal, String s, int x, int y) {
         char[] characters = s.toCharArray();
 
         for (int i = 0; i < s.length(); i++) {

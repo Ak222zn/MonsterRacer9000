@@ -2,12 +2,11 @@ TODO:
 
 Board class?
 smart monster 
-game over och fråga om nytt spel
-fler monster?
-randomisera startpositioner player och monster
 
-ändra färg på exit
-ändra färg på player eller monster
+fler monster?
+
+
+
 
 musik?
 beep?
