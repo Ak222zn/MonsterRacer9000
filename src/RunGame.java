@@ -51,8 +51,9 @@ public class RunGame {
             } while (GameOver.isPlayerAlive(terminal, player, monster));
 
             if (GameOver.isPlayerAlive(terminal, player, monster) && level == 5) {
+                terminal.applyForegroundColor(Terminal.Color.GREEN);
                 String text2 = "Congratulations! You won!";
-                GameOver.printString(terminal, text2, Board.BOARD_WIDTH + 3, 3);
+                GameOver.printString(terminal, text2, Board.BOARD_WIDTH + 5, 2);
                 if (GameOver.continuePlaying(terminal)) {
                     level = 0;
                     continue;
