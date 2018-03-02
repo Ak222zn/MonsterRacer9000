@@ -5,9 +5,6 @@ import java.util.Random;
 public class Monster extends GameObject {
 
     public Monster() {
-        this.setX(13);
-        this.setX(13);
-
     }
 
     public void randomizeStartPosition(Player player, char[][] array){
