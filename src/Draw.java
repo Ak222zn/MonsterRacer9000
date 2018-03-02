@@ -12,14 +12,26 @@ public class Draw {
 
         terminal.clearScreen();
 
-        terminal.applyForegroundColor(Terminal.Color.CYAN);
-
         for (int i = 0; i < Board.BOARD_WIDTH; i++) {
             for (int j = 0; j < Board.BOARD_HEIGHT; j++) {
+                terminal.applyForegroundColor(Terminal.Color.BLUE);
                 terminal.moveCursor(i,j);
+                if (array[i][j] == 'E') {
+                    terminal.applyForegroundColor(Terminal.Color.WHITE);
+                }
                 terminal.putCharacter(array[i][j]);
             }
         }
+
+        terminal.applyForegroundColor(Terminal.Color.CYAN);
+        String text1 = "P = player";
+        GameOver.printString(terminal, text1, Board.BOARD_WIDTH + 5, 3);
+        String text2 = "P + E = next level";
+        GameOver.printString(terminal, text2, Board.BOARD_WIDTH + 5, 4);
+        String text3 = "P + red thing = Game Over";
+        GameOver.printString(terminal, text3, Board.BOARD_WIDTH + 5, 5);
+        String text4 = "Good luck!";
+        GameOver.printString(terminal,text4, Board.BOARD_WIDTH + 5, 7);
 
     }
 

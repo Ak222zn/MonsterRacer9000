@@ -5,8 +5,9 @@ public class GameOver {
 
     public static boolean isPlayerAlive(Terminal terminal, Player player, Monster monster) {
         if (player.getX() == monster.getX() && player.getY() == monster.getY()) {
+            terminal.applyForegroundColor(Terminal.Color.RED);
             String text = "Game Over";
-            printString(terminal, text, Board.BOARD_WIDTH + 3, 5);
+            printString(terminal, text, Board.BOARD_WIDTH + 5, 13);
             return false;
         } else
             return true;
@@ -19,7 +20,8 @@ public class GameOver {
         boolean notYorN = true;
         while (notYorN) {
 
-            printString(terminal, "Continue playing? y/n", 35, 20);
+            terminal.applyForegroundColor(Terminal.Color.GREEN);
+            printString(terminal, "Continue playing? y/n", Board.BOARD_WIDTH + 5, 15);
             do {
                 try {
                     Thread.sleep(5);
