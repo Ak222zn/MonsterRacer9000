@@ -26,9 +26,9 @@ public class Draw {
     public static void drawGameObject(Terminal terminal, Player player, Monster monster) {
 
         terminal.applyForegroundColor(Terminal.Color.RED);
-        terminal.moveCursor(player.x, player.y);
+        terminal.moveCursor(player.getX(), player.getY());
         terminal.putCharacter('P');
-        terminal.moveCursor(monster.x, monster.y);
+        terminal.moveCursor(monster.getX(), monster.getY());
         terminal.putCharacter('M');
         terminal.moveCursor(0,0);
 

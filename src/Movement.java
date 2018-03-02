@@ -27,31 +27,31 @@ public class Movement {
 
         switch (key.getKind()) {
             case ArrowDown:
-                if (player.y < Board.BOARD_HEIGHT && (array[player.x][player.y + 1]) != 'x') {
-                    if (array[player.x][player.y + 1] == 'E')
+                if (player.getY() < Board.BOARD_HEIGHT && (array[player.getX()][player.getY() + 1]) != 'x') {
+                    if (array[player.getX()][player.getY() + 1] == 'E')
                         nextlevel = true;
-                    player.y++;
+                    player.setY(player.getY() + 1);
                 }
                 break;
             case ArrowUp:
-                if (player.y > 0 && (array[player.x][player.y - 1]) != 'x') {
-                    if (array[player.x][player.y - 1] == 'E')
+                if (player.getY() > 0 && (array[player.getX()][player.getY() - 1]) != 'x') {
+                    if (array[player.getX()][player.getY() - 1] == 'E')
                         nextlevel = true;
-                    player.y--;
+                    player.setY(player.getY() - 1);
                 }
                 break;
             case ArrowLeft:
-                if (player.x > 0 && (array[player.x - 1][player.y]) != 'x') {
-                    if (array[player.x - 1][player.y] == 'E')
+                if (player.getX() > 0 && (array[player.getX() - 1][player.getY()]) != 'x') {
+                    if (array[player.getX() - 1][player.getY()] == 'E')
                         nextlevel = true;
-                    player.x--;
+                    player.setX(player.getX() - 1);
                 }
                 break;
             case ArrowRight:
-                if (player.x < Board.BOARD_WIDTH && (array[player.x + 1][player.y]) != 'x') {
-                    if (array[player.x + 1][player.y] == 'E')
+                if (player.getX() < Board.BOARD_WIDTH && (array[player.getX() + 1][player.getY()]) != 'x') {
+                    if (array[player.getX() + 1][player.getY()] == 'E')
                         nextlevel = true;
-                    player.x++;
+                    player.setX(player.getX() + 1);
                 }
                 break;
         }
@@ -60,22 +60,22 @@ public class Movement {
 
     public static void moveMonster(Player player, Monster monster, char[][] array) {
 
-        int deltaX = (player.x - monster.x);
-        int deltaY = (player.y - monster.y);
+        int deltaX = (player.getX() - monster.getX());
+        int deltaY = (player.getY() - monster.getY());
         if (Math.abs(deltaX) <= Math.abs(deltaY)) {
             if (deltaY > 0) {
-                if (array[monster.x][monster.y + 1] != 'x' && array[monster.x][monster.y + 1] != 'E')
-                    monster.y++;
+                if (array[monster.getX()][monster.getY() + 1] != 'x' && array[monster.getX()][monster.getY() + 1] != 'E')
+                    monster.setY(monster.getY() + 1);
             } else if (deltaY < 0)
-                if (array[monster.x][monster.y - 1] != 'x' && array[monster.x][monster.y - 1] != 'E')
-                    monster.y--;
+                if (array[monster.getX()][monster.getY() - 1] != 'x' && array[monster.getX()][monster.getY() - 1] != 'E')
+                    monster.setY(monster.getY() - 1);
         } else if (Math.abs(deltaX) > Math.abs(deltaY)) {
             if (deltaX > 0) {
-                if (array[monster.x + 1][monster.y] != 'x' && array[monster.x + 1][monster.y] != 'E')
-                    monster.x++;
+                if (array[monster.getX() + 1][monster.getY()] != 'x' && array[monster.getX() + 1][monster.getY()] != 'E')
+                    monster.setX(monster.getX() + 1);
             } else if (deltaX < 0)
-                if (array[monster.x - 1][monster.y] != 'x' && array[monster.x - 1][monster.y] != 'E')
-                    monster.x--;
+                if (array[monster.getX() - 1][monster.getY()] != 'x' && array[monster.getX() - 1][monster.getY()] != 'E')
+                    monster.setX(monster.getX() - 1);
         }
     }
 }

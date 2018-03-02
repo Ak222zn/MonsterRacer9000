@@ -4,7 +4,7 @@ import com.googlecode.lanterna.terminal.Terminal;
 public class GameOver {
 
     public static boolean isPlayerAlive(Terminal terminal, Player player, Monster monster) {
-        if (player.x == monster.x && player.y == monster.y) {
+        if (player.getX() == monster.getX() && player.getY() == monster.getY()) {
             String text = "Game Over";
             printString(terminal, text, Board.BOARD_WIDTH + 3, 5);
             return false;

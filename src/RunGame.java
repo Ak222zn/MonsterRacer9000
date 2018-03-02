@@ -22,7 +22,8 @@ public class RunGame {
 
         char[][] levelArray = new char[30][30];
 
-        for (int k = 1; k <= 5; k++) {
+        int k = 1;
+        for (k = 1; k <= 5; k++) {
             File newfile = new File("Levels\\Board" + k + ".txt");
             try {
                 scanNewLevel = new Scanner(new FileReader(newfile));
@@ -40,10 +41,11 @@ public class RunGame {
             }
 
             // player and monster start position, randomize
-            player.x = 28;
-            player.y = 2;
-            monster.x = 2;
-            monster.y = 28;
+            player.setX(28);
+            player.setY(2);
+            monster.setX(2);
+            monster.setY(28);
+
 
             //kör bana tills det blir game over, vilket kontrolleras och hanteras i GameOver
             do {
@@ -53,11 +55,14 @@ public class RunGame {
                 Movement.moveMonster(player, monster, levelArray);
             } while (GameOver.isPlayerAlive(terminal, player, monster));
 
-
-//            if (GameOver.continuePlaying(terminal))
-//                continue;
-//            else
-//                System.exit(0);
+            if (GameOver.isPlayerAlive(terminal,player,monster))
+                continue;
+            else if (GameOver.continuePlaying(terminal)) {
+                k = 0;
+                continue;
+            }
+            else
+                System.exit(0);
 
         }
     }
